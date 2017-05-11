@@ -1,0 +1,88 @@
+body {
+    text-align: center;
+    font: 300 1em 'Montserrat', sans-serif;
+    position: relative;
+}
+
+ h2 {
+    font-size: 1.5em;
+ }
+
+
+/*-- #intro is the start button to the game -- it hold the instructional text  --*/
+#intro {
+    background: rgba(55, 25, 255, .9);
+    border: none;
+    margin-top: 25px;
+    height: 95vh;
+    width: 90%;
+}
+
+#intro:focus {
+    outline: none;
+}
+
+.instruction {
+    display: inline-block;
+    width: 90%;
+    color: rgb(150, 150, 150);
+    font-size: .9em;
+    text-align: left;
+    letter-spacing: 1px;
+    line-height: 150%;
+    z-index: 999;
+}
+
+.hit-start {
+    margin-top: 25px;
+    font-size: 3em;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: rgba(200, 200, 200, .4);
+    line-height: 80%;
+}
+
+#pulse {
+    color: rgba(200, 200, 200, .8);
+    animation: startPulse 1.2s infinite;
+}
+
+.start {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 22em;
+    font-weight: 700;
+    color: rgba(0, 0, 0, .9);
+    z-index: 99;
+    color: rgba(200, 200, 200, .8);
+    animation: startPulse 1s;
+}
+
+#clockFace {
+    font: 300 6em 'Inconsolata', monospace;
+    color: black;
+  /*  color: rgba(55, 25, 255, .9). */
+}
+
+/*-- additional large screens styles --*/
+@media screen and (min-width: 600px)  {
+    #intro {
+        width: 95%;
+        margin-top: 2.5%;
+    }
+
+    .instruction {
+        max-width: 550px;
+    }
+}
+
+/*-- animation keyframes for the start page --*/
+
+@keyframes startPulse {
+	0% { opacity:0; }
+    50% { opacity:.8; }
+    100% { opacity:0; }
+	}
+}

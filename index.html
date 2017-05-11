@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Lets Get Quizzical</title>
+    <!-- Botstrap Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!-- Bootstrap Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <!-- fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:regular,semi-bold|Inconsolata|Lekton|Ultra" rel="stylesheet">
+    <!-- CSS -->
+    <link rel="stylesheet" type="text/css" href="./assets/css/reset.css">
+    <link rel="stylesheet" type="text/css" href="./assets/css/style.css">
+</head>
+
+<body>
+    <button id="intro">
+        <div class="instruction">
+            <p>
+            <h2>Lets get Quizzical</h2></p>
+            <br />
+            <p>The rule of engagement are:</p><br />
+            <p>You will be shown a series of random multiple choice question on a common theme throughout this game.</p>
+            <br />
+            <p>You will have a set amount of time to answer all the question before the game ends.</p>
+            <br />
+            <p>This is a multiple choice Q&ampA, only one answer can be selected per question. In the end your score will total for the number of wins, loses and unanswered questions.</p>
+            <br />
+            <p>Get ready to rumble...</p>
+            <br />
+            <p class="hit-start"><span id="pulse">Click to start!</span></p>
+        </div>
+        <div class="start"></div>
+    </button>
+
+<!-- clock display -->
+<div>
+    <h1 id="clockFace" class="start">00 : 00</h1>
+</div>
+<form name="question" action="" method="post">
+	<div class="">
+	<h2>Question:</h2>
+	</div>
+	<div><span class="question"></span></div>
+	<div class="answerDisplay">
+		<input type="radio" name="answer" value=""> answer 1
+		<input type="radio" name="answer" value=""> answer 2
+		<input type="radio" name="answer" value=""> answer 3
+		<input type="radio" name="answer" value=""> answer 4
+	</div>
+</form>
+
+</form>
+
+    <div class="start"></div>
+    <script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="./assets/app.js"></script>
+</body>
+
+</html>
