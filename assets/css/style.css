@@ -62,8 +62,7 @@ body {
 
 #clockFace {
     font: 300 6em 'Inconsolata', monospace;
-    color: black;
-  /*  color: rgba(55, 25, 255, .9). */
+    color: rgba(55, 25, 255, .9). 
 }
 
 /*-- additional large screens styles --*/

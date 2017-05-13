@@ -62,15 +62,41 @@ var answerCounter = 0;
 var minutes = 2;
 var secondsRemaining;
 var intervalHandle;
+var index = 0;
+
+var questions = [{
+    question: "This is the first Question",
+    answerList: ["answer1","answer2", "answer3", "answer4", "answer5"],
+    correctAnswer: 2
+  }, 
+  {
+    question: "This is the second Question 2",
+    answerList: ["answer1","answer2", "answer3", "answer4", "answer5"],
+    correctAnswer: 4
+  },
+  {
+    question: "Question 3",
+    answerList: ["answer1","answer2", "answer3", "answer4", "answer5"],
+    correctAnswer: 1
+  },
+  {
+    question: "Question 4",
+    answerList: ["answer1","answer2", "answer3", "answer4", "answer5"],
+    correctAnswer: 3
+  },
+  {
+    question: "Question 5",
+    answerList: ["answer1","answer2", "answer3", "answer4", "answer5"],
+    correctAnswer: 2
+  }];
 
 
 
-// var questionBank = {
-// 	question : "question one",
-// 	answer : "correct answer one",
-// 	pseudoQuestion : ["pQuest1", "pQuest2", "pQuest3", "pQuest4", "pQuest5"]
-// };
 
+//---------------------------------------------------
+//-------------  ** Get Variables ** -------------
+//---------------------------------------------------
+        var clockFace = $('#clockFace');
 
 //-------------------------------------------------------
 //----------------  **Audio Elements**  ------------------
@@ -87,34 +113,45 @@ $(document).ready(function() {
         this.play();
     }, false);
     //   introAudio.play();
+    $("#clockFace").hide();
 
 
     function gameInit() {
         $('#intro').remove();
         introAudio.pause(introAudio);
-        tickTock();
+        countDown();
+        $("#clockFace").show();
+        displayQuestion(index);
     }
 
     // Start button: initializes game start
     $('#pulse').on('click', function() {
         startAudio.play(startAudio);
-        startCount();
-    });
-
-    function startCount() {
-        $('.start').append("Go!");
+        $('.start').append("Go!").fadeOut(1200);
         var timeoutId = setTimeout(function() {
             $('.start').remove();
             gameInit();
         }, 1000);
-    }
+    });
+console.log(questions[index].question);
+function displayQuestion(index) {
+	var x = 0;
+	$(".question").append(" " + [x += 1] + ": " + questions[index].question);
+	var answerKey = questions[index].answerList;
+	for (var i = 0; i < answerKey.length; i++) {
+		console.log('i: ' + i);
+    $('<input type="radio" name="answer" />' + "<p>" + questions[i].answerList[i] + "</p>").appendTo(".questionBlock");
+}
+
+}
+
+
 
     //game countdown clock
     secondsRemaining = minutes * 60;
-    intervalId = setInterval(tickTock, 1000)
+    intervalId = setInterval(countDown, 1000)
 
-    function tickTock() {
-        var clockFace = $('#clockFace');
+    function countDown() {
 console.log('in clock')
         var min = Math.floor(secondsRemaining / 60);
         var sec = secondsRemaining - (min * 60);
@@ -127,9 +164,8 @@ console.log('in clock')
 
         var time = min + ":" + sec
         $('#clockFace').html(time);
-console.log('in clock pushing')
         if (secondsRemaining === 0) {
-        $('#clockFace').append("Yo time is up!");
+        $('#clockFace').html("Yo time is up!");
             clearInterval(intervalId);
             //        nextQuestion();
         }
@@ -137,26 +173,26 @@ console.log('in clock pushing')
         secondsRemaining--;
     }
 
-Function radioAnswer {
-	var answer;
-	var length = $('.questionAnswer.answer').length;
+// Function radioAnswer {
+// 	var answer;
+// 	var length = $('.questionAnswer.answer').length;
 
-	for (i = 0; i < length; i++) {
-		var answer = $('.questionAnswer.answer')[i];
-            crystalValueAdd.setAttribute("Data-answer", randomNum);
-            crystalValue.push(randomNum);
-	     AnswerList(this.getAttribute("data-crystal"));
+// 	for (i = 0; i < length; i++) {
+// 		var answer = $('.questionAnswer.answer')[i];
+//             crystalValueAdd.setAttribute("Data-answer", randomNum);
+//             crystalValue.push(randomNum);
+// 	     AnswerList(this.getAttribute("data-crystal"));
 
 
-	for (i = 0; i < length; i++) {
-		if ($('.questionAnswer.answer')[i].check) {
-			answer = $('.questionAnswer.answer')[i] 
-		}
-	}
-		if ($('.questionAnswer.answer')[i].value);
-		break
+// 	for (i = 0; i < length; i++) {
+// 		if ($('.questionAnswer.answer')[i].check) {
+// 			answer = $('.questionAnswer.answer')[i] 
+// 		}
+// 	}
+// 		if ($('.questionAnswer.answer')[i].value);
+// 		break
 
-}
+// }
 
 
 }); //.ready closing brace
