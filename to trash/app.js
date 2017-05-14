@@ -10,8 +10,9 @@
 
 // code requirements
 // ====================================================
-// display game rules with a button that has an on.click event to the 
-// on.click initiate game, removed instruction.
+// set-up question/ answer data bases as object? 
+// Q&A object to hold { question : questionValue, answer : answerValue, fauxAnswer : fauxAnswerValue}
+// display game rules with a button that has an on.click event to the clear rules and start game // on.click initiate game, removed instruction.
 // gameInit () { display timer that counts down from XXsec, display question and multi-choice answer key via single selection option (radio button)}
 // Build timing function for Q&A countdown called on gameInit, var myVar = setInterval(function(){ myTimer() }, 1000); 
 // Fire timer on page load for each question cycle
@@ -59,44 +60,18 @@ var lossCounter = 0;
 var answerCounter = 0;
 
 // clock varaables minutes = total time 
-var minutes = 2;
+var timeUnit = 2;
 var secondsRemaining;
 var intervalHandle;
-var index = 0;
-
-var questions = [{
-    question: "This is the first Question",
-    answerList: ["answer1","answer2", "answer3", "answer4", "answer5"],
-    correctAnswer: 2
-  }, 
-  {
-    question: "This is the second Question 2",
-    answerList: ["answer1","answer2", "answer3", "answer4", "answer5"],
-    correctAnswer: 4
-  },
-  {
-    question: "Question 3",
-    answerList: ["answer1","answer2", "answer3", "answer4", "answer5"],
-    correctAnswer: 1
-  },
-  {
-    question: "Question 4",
-    answerList: ["answer1","answer2", "answer3", "answer4", "answer5"],
-    correctAnswer: 3
-  },
-  {
-    question: "Question 5",
-    answerList: ["answer1","answer2", "answer3", "answer4", "answer5"],
-    correctAnswer: 2
-  }];
 
 
 
+// var questionBank = {
+//  question : "question one",
+//  answer : "correct answer one",
+//  pseudoQuestion : ["pQuest1", "pQuest2", "pQuest3", "pQuest4", "pQuest5"]
+// };
 
-//---------------------------------------------------
-//-------------  ** Get Variables ** -------------
-//---------------------------------------------------
-        var clockFace = $('#clockFace');
 
 //-------------------------------------------------------
 //----------------  **Audio Elements**  ------------------
@@ -113,86 +88,86 @@ $(document).ready(function() {
         this.play();
     }, false);
     //   introAudio.play();
-    $("#clockFace").hide();
-
+    $('clockFace').hide
 
     function gameInit() {
-        $('#intro').remove();
+        $('#intro').empty();
         introAudio.pause(introAudio);
-        countDown();
-        $("#clockFace").show();
-        displayQuestion(index);
+        $('clockFace').show
+        tickTock();
     }
 
     // Start button: initializes game start
     $('#pulse').on('click', function() {
         startAudio.play(startAudio);
-        $('.start').append("Go!").fadeOut(1200);
+        startCount();
+    });
+
+    function startCount() {
+        $('.start').append("Go!");
         var timeoutId = setTimeout(function() {
             $('.start').remove();
             gameInit();
         }, 1000);
-    });
-console.log(questions[index].question);
-function displayQuestion(index) {
-	var x = 0;
-	$(".question").append(" " + [x += 1] + ":  " + questions[index].question);
-	var answerKey = questions[index].answerList;
-	for (var i = 0; i < answerKey.length; i++) {
-		console.log('i: ' + i);
-    $('<input type="radio" name="answer" />' + questions[i].answerList[i] + "<br />").appendTo(".questionBlock");
-}
-
-}
-
-
+    }
 
     //game countdown clock
-    secondsRemaining = minutes * 60;
-    intervalId = setInterval(countDown, 1000)
 
-    function countDown() {
-console.log('in clock')
+
+    function tickTock(timeUnit) {
+        var intervalId = setInterval(tickTock, 1000);
+        secondsRemaining = timeUnit * 60;
+
+        var clockFace = $('#clockFace');
+        console.log('in clock')
         var min = Math.floor(secondsRemaining / 60);
         var sec = secondsRemaining - (min * 60);
+
         if (sec < 10) {
             sec = "0" + sec;
         }
+
         if (min < 10) {
-        	min = "0" + min;
+            min = "0" + min;
         }
 
         var time = min + ":" + sec
         $('#clockFace').html(time);
+        console.log('in clock pushing')
         if (secondsRemaining === 0) {
-        $('#clockFace').html("Yo time is up!");
+            $('#clockFace').append("Yo time is up!");
             clearInterval(intervalId);
-            //        nextQuestion();
+            //displayQuestion();
         }
 
         secondsRemaining--;
     }
 
-// Function radioAnswer {
-// 	var answer;
-// 	var length = $('.questionAnswer.answer').length;
+    //function displayQuestion {
 
-// 	for (i = 0; i < length; i++) {
-// 		var answer = $('.questionAnswer.answer')[i];
-//             crystalValueAdd.setAttribute("Data-answer", randomNum);
-//             crystalValue.push(randomNum);
-// 	     AnswerList(this.getAttribute("data-crystal"));
+    //}
 
 
-// 	for (i = 0; i < length; i++) {
-// 		if ($('.questionAnswer.answer')[i].check) {
-// 			answer = $('.questionAnswer.answer')[i] 
-// 		}
-// 	}
-// 		if ($('.questionAnswer.answer')[i].value);
-// 		break
+    // Function radioAnswer {
+    //  var answer;
+    //  var length = $('.questionAnswer.answer').length;
 
-// }
+    //  for (i = 0; i < length; i++) {
+    //      var answer = $('.questionAnswer.answer')[i];
+    //             crystalValueAdd.setAttribute("Data-answer", randomNum);
+    //             crystalValue.push(randomNum);
+    //       AnswerList(this.getAttribute("data-crystal"));
+
+
+    //  for (i = 0; i < length; i++) {
+    //      if ($('.questionAnswer.answer')[i].check) {
+    //          answer = $('.questionAnswer.answer')[i] 
+    //      }
+    //  }
+    //      if ($('.questionAnswer.answer')[i].value);
+    //      break
+
+    // }
 
 
 }); //.ready closing brace

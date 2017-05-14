@@ -36,17 +36,23 @@
     </button>
 
 <!-- clock display -->
-<div id="clockFace">
-    <h1 class="start">00 : 00</h1>
+<div>
+    <h1 id="clockFace" class="start">00:00</h1>
 </div>
-	<div class="questionBlock">
-	<h2>Question<span class="question"></span></h2>
-	<form class="answerBlock" action="" method="post">
-	<div></div>
-</div>
-	<div class="choiceDisplay"></div>
+<form name="question" action="" method="post">
+	<div class="">
+	<h2>Question:</h2>
+	</div>
+	<div><span class="question"></span></div>
+	<div class="answerDisplay">
+		<input type="radio" name="answer" value=""> answer 1
+		<input type="radio" name="answer" value=""> answer 2
+		<input type="radio" name="answer" value=""> answer 3
+		<input type="radio" name="answer" value=""> answer 4
+	</div>
+</form>
 
-
+</form>
 
     <div class="start"></div>
     <script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
