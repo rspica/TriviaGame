@@ -96,7 +96,7 @@ var questions = [{
 //---------------------------------------------------
 //-------------  ** Get Variables ** -------------
 //---------------------------------------------------
-        var clockFace = $('#clockFace');
+var clockFace = $('#clockFace');
 
 //-------------------------------------------------------
 //----------------  **Audio Elements**  ------------------
@@ -115,6 +115,7 @@ $(document).ready(function() {
        introAudio.play();
     $("#clockFace").hide();
 
+console.log('questions.correctAnswer: ' + questions.correctAnswer);
 
     function gameInit() {
         $('#intro').remove();
@@ -140,7 +141,8 @@ function displayQuestion(index) {
 	var answerKey = questions[index].answerList;
 	for (var i = 0; i < answerKey.length; i++) {
         var answerValueAdd = questions[i].answerList[i];
-        $(".answerBlock").append('<input type="radio" name="answerSelect" />' + answerValueAdd + "<br />");
+        var x = i; // x redefines the index starting at 1 
+        $(".answerBlock").append('<input type="radio" name="answerSelect" value="' + [++x] +'"" />' + answerValueAdd + "<br />");
     }
 
 }
@@ -148,7 +150,7 @@ function displayQuestion(index) {
 $(".answerBlock").on("click", function() {
     var answerValue = $('input[name=answerSelect]:checked').val();
     console.log(answerValue);
-    console.log('answerValueAdd: ' + answerValueAdd);
+    console.log('questions.correctAnswer: ' + questions.correctAnswer);
     if (answerValue === questions.correctAnswer) 
         winCounter++;
         index++;
