@@ -133,18 +133,28 @@ $(document).ready(function() {
             gameInit();
         }, 1000);
     });
-console.log(questions[index].question);
+
+// displays first question on screen
 function displayQuestion(index) {
-	var x = 0;
-	$(".question").append(" " + [x += 1] + ":  " + questions[index].question);
+	$(".question").append(questions[index].question);
 	var answerKey = questions[index].answerList;
 	for (var i = 0; i < answerKey.length; i++) {
-		console.log('i: ' + i);
-    $('<input type="radio" name="answer" />' + questions[i].answerList[i] + "<br />").appendTo(".questionBlock");
-}
+        var answerValueAdd = questions[i].answerList[i];
+        $(".answerBlock").append('<input type="radio" name="answerSelect" />' + answerValueAdd + "<br />");
+    }
 
 }
 
+$(".answerBlock").on("click", function() {
+    var answerValue = $('input[name=answerSelect]:checked').val();
+    console.log(answerValue);
+    console.log('answerValueAdd: ' + answerValueAdd);
+    if (answerValue === questions.correctAnswer) 
+        winCounter++;
+        index++;
+        console.log('index: ' + index + "/ winCounter: " + winCounter);
+        $(".questionBlock").empty(displayQuestion(index));
+})
 
 
     //game countdown clock
@@ -167,7 +177,8 @@ console.log('in clock')
         if (secondsRemaining === 0) {
         $('#clockFace').html("Yo time is up!");
             clearInterval(intervalId);
-            //        nextQuestion();
+            index++;
+            //displayQuestion(index);
         }
 
         secondsRemaining--;

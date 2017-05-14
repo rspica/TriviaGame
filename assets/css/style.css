@@ -69,8 +69,12 @@ body {
     margin-top: 25px;
     margin-left: 125px;
     text-align: left;
-
 }
+
+.answerBlock {
+    margin-top: 25px;
+}
+
 
 input[type=radio] {
     margin: 15px;

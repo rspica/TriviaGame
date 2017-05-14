@@ -19,9 +19,10 @@
     <button id="intro">
         <div class="instruction">
             <p>
-            <h2>Lets get Quizzical</h2></p>
+                <h2>Lets get Quizzical</h2></p>
             <br />
-            <p>The rule of engagement are:</p><br />
+            <p>The rule of engagement are:</p>
+            <br />
             <p>You will be shown a series of random multiple choice question on a common theme throughout this game.</p>
             <br />
             <p>You will have a set amount of time to answer all the question before the game ends.</p>
@@ -34,20 +35,18 @@
         </div>
         <div class="start"></div>
     </button>
-
-<!-- clock display -->
-<div id="clockFace">
-    <h1 class="start">00 : 00</h1>
-</div>
-	<div class="questionBlock">
-	<h2>Question<span class="question"></span></h2>
-	<form class="answerBlock" action="" method="post">
-	<div></div>
-</div>
-	<div class="choiceDisplay"></div>
-
-
-
+    <!-- clock display -->
+    <div id="clockFace">
+        <h1 class="start">00 : 00</h1>
+    </div>
+    <!-- question and answer block -->
+    <div class="questionBlock">
+        <h2>Question: <span class="question"></span></h2>
+    <!-- answer list created dynamically through apps.js -->
+        <form class="answerBlock" action="" method="post">
+        </form>
+    </div>
+    <div class="choiceDisplay"></div>
     <div class="start"></div>
     <script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
     <script type="text/javascript" src="./assets/app.js"></script>
