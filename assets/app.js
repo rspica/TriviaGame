@@ -107,12 +107,12 @@ var countdownAudio = new Audio('./assets/sound/Fire Alarm.mp3');
 
 
 $(document).ready(function() {
-    //   introAudio.play(introAudio);
+       introAudio.play(introAudio);
     introAudio.addEventListener('ended', function() { // loops intro theme music
         this.currentTime = 0;
         this.play();
     }, false);
-    //   introAudio.play();
+       introAudio.play();
     $("#clockFace").hide();
 
 
